@@ -1,18 +1,19 @@
 package data_structure;
 
 public class Main {
-	public static void main(String[] args) {
-		SpecialStack pilha = new SpecialStack(10);
-		pilha.pushRed(10);
-		pilha.pushRed(10);
-		pilha.pushRed(10);
-		pilha.pushRed(18);
-		pilha.pushBlack(10);
-		pilha.pushBlack(10);
-		pilha.pushBlack(15);
-		System.out.println(pilha.topBlack());
-		System.out.println(pilha.topRed());
-		pilha.popBlack();
-		System.out.println(pilha.topBlack());
+	public static void main(String[] args) throws Exception {
+		Queue fila = new Queue(2);
+		fila.enqueue(1);
+		fila.enqueue(2);
+		fila.enqueue(3);
+		fila.enqueue(4);
+		fila.enqueue(5);
+		fila.enqueue(6);
+		fila.enqueue(7);
+		fila.dequeue();
+		fila.dequeue();
+		System.out.println(fila.begin());
+		System.out.println(fila.size());
+		
 	}
 }

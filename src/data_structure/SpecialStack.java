@@ -9,7 +9,7 @@ public class SpecialStack{
 	public SpecialStack(int length) {
 		array = new Object[length];
 		topRed = -1;
-		topBlack = length - 1;
+		topBlack = length;
 		auxLength = topBlack;
 	}
 	
