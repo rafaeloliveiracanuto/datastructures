@@ -23,9 +23,11 @@ public class Queue {
 	
 	public void enqueue(Object object){
 		if(size() == auxLength - 1){
+			int aux = begin;
+			int aux2 = end;
 			Object []newArray = new Object[auxLength * 2];
 			for(int i = 0; i < auxLength; i++) {
-				newArray[i] = array[i];
+				newArray[i] = array[begin];
 			}
 			auxLength = auxLength * 2;
 			array = newArray;

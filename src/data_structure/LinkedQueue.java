@@ -1,69 +1,56 @@
 package data_structure;
-#Incomplete
+
 public class LinkedQueue {
-	private Node node;
+	private Node begin;
+	private Node end;
+	private int size;
+	
+	public LinkedQueue() {
+		size = 0;
+		begin = null;
+		end = null;
+	}
+	
+	public int size() {
+		return size;
+	}
 	
 	public void enqueue(Object object) {
 		Node newNode = new Node();
 		newNode.setObject(object);
 		newNode.setNext(null);
 		
-		if(node == null) {
-			node = newNode;
+		if(size == 0) {
+			begin = newNode;
 		}else {
-			Node aux = node;
-			while(aux.getNext() != null) {
-				aux = aux.getNext();
-			}
-			aux.setNext(newNode);
+			end.setNext(newNode);
 		}
+		
+		end = newNode;
+		size++;
 	}
 	
 	public boolean isEmpty() {
-		return node == null;
+		return begin == null;
 	}
 	
 	public Object dequeue() throws Exception {
 		if(isEmpty()) {
 			throw new Exception("Queue is empty!");
 		}
-		Object object;
+		Object object = begin.getObject();
+		begin = begin.getNext();
+		size--;
 		
-		if(node.getNext() == null) {
-			object = node.getObject();
-			node = null;	
-		}else {
-			object = node.getObject();
-			Node aux = node;
-			//aux.setObject(node.getNext().getObject());
-			while(aux.getNext() != null) {
-				aux = aux.getNext();
-				aux.setObject(aux.getObject());
-			}
-			aux.setNext(null);
-			node = aux;
+		if(size == 0) {
+			end = null;
 		}
-		
-		/*
-		
-		if(node.getNext() == null) {
-			object = node.getObject();
-			node = null;
-		}else {
-			Node aux = node;
-			while(aux.getNext().getNext() != null) {
-				aux = aux.getNext();
-			}
-			object = aux.getNext().getObject();
-			aux.setNext(null);
-		}
-		*/
 		
 		return object;
 	}
 	
 	public Object begin() {
-		return node.getObject();
+		return begin.getObject();
 	}
 	
 }

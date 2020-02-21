@@ -1,70 +1,51 @@
 package data_structure;
 
 public class LinkedStack {
-	private Node node;
+	private Node top;
+	private int size;
+	
+	public LinkedStack() {
+		top = null;
+		size = 0;
+	}
 	
 	public void push(Object object) {
 		Node newNode = new Node();
-		newNode.setObject(object);
-		newNode.setNext(null);
 		
-		if(node == null) {
-			node = newNode;
-		}else {
-			Node aux = node;
-			while(aux.getNext() != null) {
-				aux = aux.getNext();
-			}
-			aux.setNext(newNode);
-		}
+		newNode.setObject(object);
+		newNode.setNext(top);
+		
+		top = newNode;
+		size++;
 	}
 	
 	public boolean isEmpty() {
-		return node == null;
+		return top == null;
 	}
 	
 	public Object pop() throws Exception {
 		if(isEmpty()) {
 			throw new Exception("Stack is empty!");
 		}
-		Object object;
 		
-		if(node.getNext() == null) {
-			object = node.getObject();
-			node = null;
-		}else {
-			Node aux = node;
-			while(aux.getNext().getNext() != null) {
-				aux = aux.getNext();
-			}
-			object = aux.getNext().getObject();
-			aux.setNext(null);
-		}
+		Object object = new Object();
+		object = top.getObject();
+		
+		top = top.getNext();
+		size--;
+		
 		return object;
-		
 	}
 	
-	public Object top() {
-		Node aux = node;
-		while(aux.getNext() != null) {
-			aux = aux.getNext();
+	public Object top() throws Exception{
+		if(isEmpty()) {
+			throw new Exception("Stack is empty!");
 		}
-		return aux.getObject();
+		
+		return top.getObject();
 	}
 	
-	public Object size() {
-		if(node == null) {
-			return 0;
-		}
-		
-		int size = 1;
-		Node aux = node;
-		while(aux.getNext() != null) {
-			aux = aux.getNext();
-			size++;
-		}
-		
+	public int size() {
 		return size;
-		
 	}
 }
