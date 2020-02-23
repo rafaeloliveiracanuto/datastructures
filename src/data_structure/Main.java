@@ -4,14 +4,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		LinkedStack linkedStack = new LinkedStack();
 		Queue queue = new Queue(5);
-		LinkedQueue linkedQueue = new LinkedQueue();
-		linkedQueue.enqueue(2);
-		linkedQueue.enqueue(3);
-		linkedQueue.enqueue(4);
-		linkedQueue.enqueue(5);
-		linkedQueue.dequeue();
-		linkedQueue.dequeue();
-		System.out.println(linkedQueue.begin());
+		//System.out.println(linkedQueue.begin());
 		queue.enqueue(5);
 		queue.enqueue(8);
 		queue.enqueue(0);
@@ -19,10 +12,9 @@ public class Main {
 		queue.dequeue();
 		queue.dequeue();
 		queue.dequeue();
+		queue.dequeue();
 		queue.enqueue(3);
 		queue.enqueue(6);
-		queue.enqueue(4);
-		queue.enqueue(5);
 		/*
 		linkedStack.push(4);
 		linkedStack.push(9);
