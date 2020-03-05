@@ -51,7 +51,7 @@ public class Queue {
 	}
 	
 	public void enqueue(Object object){
-		if(amount == array.length){
+		if(amount == auxLength){
 			doubleCapacity();
 		}
 		array[end] = object;
